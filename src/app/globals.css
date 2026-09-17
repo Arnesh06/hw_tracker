@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Board white, graphite ink, solder-mask green */
+    --background: 150 9% 96%;
+    --foreground: 213 30% 13%;
+    --card: 0 0% 100%;
+    --card-foreground: 213 30% 13%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 213 30% 13%;
+    --primary: 167 73% 20%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 160 12% 92%;
+    --secondary-foreground: 213 30% 16%;
+    --muted: 155 10% 93%;
+    --muted-foreground: 213 10% 40%;
+    --accent: 165 30% 92%;
+    --accent-foreground: 167 73% 16%;
+    --destructive: 4 76% 40%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 150 8% 87%;
+    --input: 150 8% 82%;
+    --ring: 167 73% 26%;
+
+    --sidebar: 213 30% 13%;
+    --sidebar-foreground: 150 10% 92%;
+    --sidebar-muted: 213 12% 64%;
+    --sidebar-active: 163 55% 48%;
+
+    --status-available: 160 64% 32%;
+    --status-inuse: 212 70% 45%;
+    --status-damaged: 4 76% 45%;
+    --status-repair: 39 83% 43%;
+    --status-retired: 215 10% 58%;
+
+    --radius-control: 6px;
+    --radius-panel: 10px;
+  }
+
+  .dark {
+    --background: 213 28% 8%;
+    --foreground: 150 10% 92%;
+    --card: 213 26% 11%;
+    --card-foreground: 150 10% 92%;
+    --popover: 213 26% 11%;
+    --popover-foreground: 150 10% 92%;
+    --primary: 163 55% 42%;
+    --primary-foreground: 213 30% 8%;
+    --secondary: 213 20% 17%;
+    --secondary-foreground: 150 10% 92%;
+    --muted: 213 20% 15%;
+    --muted-foreground: 213 10% 66%;
+    --accent: 165 30% 16%;
+    --accent-foreground: 160 40% 86%;
+    --destructive: 4 70% 52%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 213 18% 19%;
+    --input: 213 18% 25%;
+    --ring: 163 55% 42%;
+
+    --sidebar: 213 30% 6%;
+    --sidebar-foreground: 150 10% 92%;
+    --sidebar-muted: 213 12% 60%;
+    --sidebar-active: 163 55% 48%;
+
+    --status-available: 160 55% 45%;
+    --status-inuse: 212 75% 60%;
+    --status-damaged: 4 75% 60%;
+    --status-repair: 39 85% 55%;
+    --status-retired: 215 10% 60%;
+  }
+
+  * {
+    @apply border-border;
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss02", "tnum";
+  }
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
+  :focus-visible {
+    outline-color: hsl(var(--ring));
+  }
+}
+
+@layer utilities {
+  .hw-id {
+    @apply font-mono text-[0.8rem] font-medium tracking-tight;
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  body { background: white !important; }
+  .no-print { display: none !important; }
+  .print-area { box-shadow: none !important; border: none !important; }
+  @page { margin: 10mm; }
+}
